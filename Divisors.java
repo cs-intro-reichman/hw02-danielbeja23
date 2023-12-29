@@ -7,7 +7,7 @@ public class Divisors {
 		if (x == 0){ // If the input is zero, print zero.
 			System.out.println(0);
 		}else{
-			for(int k = 1; (i <= (x / 2)); i++){//Check if x has divisors from 1 to x:2.
+			for(int k = 1; k <= (x / 2); k++){//Check if x has divisors from 1 to x:2.
 				if(x % k == 0){
 					System.out.println(k);// Print the divisor.
 				}
