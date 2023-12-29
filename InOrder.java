@@ -4,6 +4,12 @@
  */
 public class InOrder {
 	public static void main (String[] args) {
-		//// Write your code here
+		double currNum = 0;
+		double nextNum = Math.random() * 10; //Set the first number.
+		do{
+			currNum = nextNum; 
+			System.out.print((int)currNum+ " ");
+			nextNum = Math.random() * 10;//Generate a new number.
+		}while(currNum <= nextNum); //Check if we have a non decreasing sequence.
 	}
 }
