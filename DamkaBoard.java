@@ -12,7 +12,7 @@ public class DamkaBoard {
 			if(i%2 == 1){ //if the row number is uneven print it with space at the begging.
 				System.out.println(" " + damkaLine);
 			}else{
-				System.out.println(damkaLine);
+				System.out.println(damkaLine + " ");
 			}
 		}
 	}
