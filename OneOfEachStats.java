@@ -25,11 +25,11 @@ public class OneOfEachStats {
 			String family="";
 			while(!boy || !girl){
 				kids = generator.nextDouble(); //0 is a boy and 1 is a girl.
-				if((int)kids == 0){
+				if(kids < 0.5){
 				family = family + "b";
 				boy = true;
 				} 
-				if((int)kids == 1){
+				if(kids >= 0.5){
 					family = family + "g";
 					girl = true;
 				}
