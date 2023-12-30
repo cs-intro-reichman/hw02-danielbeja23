@@ -35,13 +35,13 @@ public class OneOfEachStats1 {
 			avgChild = avgChild + familySize;
 			if(familySize == 2){
 				twoChild += 1;
-			}if(familySize == 3){
+			}
+			else if(familySize == 3){
 				threeChild += 1;
-			}else{
+			}
+			else{
 				fourChild += 1;
 			}
-			System.out.println(family);
-			System.out.println("You made it... and you now have " + familySize + " children.") ;
 		}
 		avgChild = avgChild / T;
 		mostCommon = Math.max(Math.max(twoChild,threeChild),fourChild);// check which group is the biggest.
@@ -51,7 +51,7 @@ public class OneOfEachStats1 {
 		System.out.println("Number of families with 4 or more children: " + fourChild);
 		if(mostCommon == twoChild){
 			System.out.println("The most common number of children is 2.");
-		}if(mostCommon == threeChild){
+		}else if(mostCommon == threeChild){
 			System.out.println("The most common number of children is 3.");
 		}else{
 			System.out.println("The most common number of children is 4 or more.");
