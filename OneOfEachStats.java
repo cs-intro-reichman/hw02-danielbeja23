@@ -12,8 +12,61 @@ public class OneOfEachStats {
 		// Gets the two command-line arguments
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
+		Random generator = new Random(seed); 
+		double kids =0;//0 for a boy, 1 for a girl.
+		int twoChild = 0; // count how many families has two childs.
+		int threeChild = 0; // count how many families has three childs.
+		int fourChild = 0; // count how many families has four childs.
+		double avgChild = 0;// avarage of how many children to get at least one of each gender.
+		int mostCommon = 0;// determines the most common number of children in families.
+		for(int i = 0;i < T;i++){
+			boolean boy = false;
+			boolean girl = false;
+			String family="";
+			while(!boy || !girl){
+				kids = generator.nextDouble(); //0 is a boy and 1 is a girl.
+				if((int)kids == 0){
+				family = family + "b";
+				boy = true;
+				} 
+				if((int)kids == 1){
+					family = family + "g";
+					girl = true;
+				}
+				if(!boy || !girl){
+					family = family + " ";		
+				}
+			}
+			int familySize = ((family.length() / 2) + 1); // determines how many children are.
+			avgChild = avgChild + familySize;
+			if(familySize == 2){
+				twoChild += 1;
+			}
+			else if(familySize == 3){
+				threeChild += 1;
+			}
+			else{
+				fourChild += 1;
+			}
+		}
+		avgChild = avgChild / T;
+		mostCommon = Math.max(Math.max(twoChild,threeChild),fourChild);// check which group is the biggest.
+		System.out.println("Average: " + avgChild + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children: " + twoChild);
+		System.out.println("Number of families with 3 children: " + threeChild);
+		System.out.println("Number of families with 4 or more children: " + fourChild);
+		if(mostCommon == twoChild){
+			System.out.println("The most common number of children is 2.");
+		}else if(mostCommon == threeChild){
+			System.out.println("The most common number of children is 3.");
+		}else{
+			System.out.println("The most common number of children is 4 or more.");
+		}
+		}
+	}
+
 		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
+
 		
 		//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
@@ -25,5 +78,5 @@ public class OneOfEachStats {
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
 		    
-	}
-}
+	
+
